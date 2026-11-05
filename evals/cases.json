@@ -1,0 +1,65 @@
+[
+  {
+    "id": "editorial-site",
+    "activate": true,
+    "prompt": "Create a responsive portfolio for an architectural photographer. Use the supplied licensed photographs and factual biography. Make the direction editorial and distinctive. Use the project's existing stack and inspect the result.",
+    "setup": "A runnable starter, six licensed photographs with varied aspect ratios, biography, contact route, and agreed narrow and wide viewports.",
+    "criteria": ["Composition responds to the photography and content.", "Images have intentional crops and text has a clear hierarchy.", "Narrow and wide layouts are inspected with real content.", "No clients, awards, or testimonials are invented."]
+  },
+  {
+    "id": "dense-web-app",
+    "activate": true,
+    "prompt": "Improve this operations dashboard. Preserve its table filters, saved views, keyboard workflows, and current framework. Make it clearer and more coherent without sacrificing useful data density.",
+    "setup": "A working dashboard with a populated table, filters, a saved-view menu, and existing build and interaction checks.",
+    "criteria": ["The main workspace remains useful and appropriately dense.", "Hierarchy and numeric alignment improve without hiding key data.", "Affected interactions still work.", "Relevant resize and state checks have evidence."]
+  },
+  {
+    "id": "native-mobile",
+    "activate": true,
+    "prompt": "Refine the account and settings screens in this native mobile app. Preserve its navigation and native controls. Improve grouping and typography and check larger text settings.",
+    "setup": "A runnable native app and emulator or device preview, realistic labels, current navigation, and supported text scaling settings.",
+    "criteria": ["The detected native framework is retained.", "Grouping and typography support the existing task.", "Safe areas and supported text scaling are inspected.", "Web-only implementation assumptions are avoided."]
+  },
+  {
+    "id": "combat-hud",
+    "activate": true,
+    "prompt": "Improve this combat HUD in its existing engine. Keep the reticle area clear, make health and cooldowns readable over gameplay, and preserve keyboard and controller menus.",
+    "setup": "A runnable game or engine preview, bright and dark scenes, health and cooldown states, controller navigation, and supported aspect ratios.",
+    "criteria": ["Critical telemetry is readable over representative scenes.", "The central action area is protected.", "Supported input navigation remains usable.", "Engine layout mechanisms and supported aspect ratios are respected.", "Performance claims are measured or explicitly unverified."]
+  },
+  {
+    "id": "scoped-polish",
+    "activate": true,
+    "prompt": "Polish only this checkout form's spacing, labels, focus, and validation feedback. Keep the existing brand, page layout, and payment integration.",
+    "setup": "A working checkout with invalid and valid field states, keyboard access, brand tokens, and a safe test environment.",
+    "criteria": ["Changes remain within the requested form.", "Existing branding and integration are preserved.", "Labels, focus, and feedback are visibly usable.", "No unrelated redesign, framework migration, or new design record is introduced."]
+  },
+  {
+    "id": "existing-brand",
+    "activate": true,
+    "prompt": "Improve the visual hierarchy of this playful learning app while preserving its illustrated identity, colour palette, and existing components.",
+    "setup": "An existing app, supplied brand guide, licensed illustrations, and representative lesson and progress screens.",
+    "criteria": ["The playful identity remains recognisable.", "Changes improve hierarchy using the existing system.", "The result does not default to an unrelated restrained or corporate style.", "Representative screens are inspected for regressions."]
+  },
+  {
+    "id": "screenshot-only",
+    "activate": true,
+    "prompt": "This screenshot looks cluttered. Explain how you would improve its UI; I cannot share source code or a running application.",
+    "setup": "A shareable screenshot only, without source, preview, or application access.",
+    "criteria": ["Observed visual issues are distinguished from assumptions.", "Recommendations identify locations and concrete changes.", "No claim of editing, runtime testing, or captured after-state is made."]
+  },
+  {
+    "id": "backend-only",
+    "activate": false,
+    "prompt": "Optimise the database index used by the invoice API without changing any UI.",
+    "setup": "A backend repository and query information; no visual changes are requested.",
+    "criteria": ["The UI skill is not selected for a backend-only task."]
+  },
+  {
+    "id": "unrelated-writing",
+    "activate": false,
+    "prompt": "Proofread this meeting agenda and correct spelling only.",
+    "setup": "A plain-text meeting agenda.",
+    "criteria": ["The UI skill is not selected for unrelated writing."]
+  }
+]
