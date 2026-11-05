@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Motion Lab · UI Art Director</title>
+  <style>
+    :root { --canvas:#f5f7fa; --surface:#fff; --ink:#18212f; --muted:#556275; --line:#d7dfe9; --accent:#1659d4; --soft:#eaf0fc; --radius:24px; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--canvas); color:var(--ink); font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    button,input { font:inherit; }
+    button { cursor:pointer; }
+    button:focus-visible,input:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+    button { border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); padding:11px 17px; font-weight:600; transition:background-color 140ms ease; }
+    button:hover { background:#edf2f8; }
+    button:active { background:#dfe8f4; }
+    .primary { color:white; background:var(--accent); border-color:var(--accent); }
+    .primary:hover { background:#1048b1; }
+    .primary:active { background:#0d3b91; }
+    .shell { max-width:1320px; margin:auto; padding:38px 40px 30px; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:20px; padding-bottom:28px; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:11px; font-weight:650; letter-spacing:-.03em; }
+    .brand svg { width:30px; height:30px; }
+    .edition { color:var(--muted); font-size:14px; }
+    .intro { display:flex; align-items:flex-end; justify-content:space-between; gap:36px; padding:52px 0 38px; }
+    h1 { margin:0 0 16px; max-width:680px; font-size:clamp(38px,5vw,66px); line-height:1.06; font-weight:620; letter-spacing:-.065em; text-wrap:balance; }
+    .lead { margin:0; max-width:530px; color:var(--muted); font-size:17px; }
+    .controls { display:grid; justify-items:start; gap:13px; flex-shrink:0; padding-bottom:3px; }
+    .preference { display:flex; align-items:center; gap:10px; min-height:30px; font-size:14px; }
+    .preference input { width:18px; height:18px; margin:0; accent-color:var(--accent); }
+    .motion-state { color:var(--muted); font-size:12px; }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+    article { display:flex; flex-direction:column; min-width:0; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); overflow:hidden; }
+    .card-top { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:20px 22px; border-bottom:1px solid var(--line); }
+    h2 { font-size:15px; font-weight:650; margin:0; letter-spacing:-.02em; }
+    .kind { color:var(--muted); font-size:12px; }
+    .stage { min-height:285px; padding:28px 25px; display:flex; flex-direction:column; justify-content:center; }
+    .reveal-stage { background:linear-gradient(145deg,#eff4fe,#f9fbff); }
+    .mini-label { color:var(--accent); font-size:12px; font-weight:650; margin:0 0 16px; }
+    .reveal-heading { font-size:clamp(29px,3vw,43px); line-height:1.16; letter-spacing:-.055em; font-weight:620; margin:0; }
+    .mask { display:block; overflow:hidden; padding-bottom:.08em; margin-bottom:-.08em; }
+    .reveal-line { display:block; }
+    .caption { padding:22px; border-top:1px solid var(--line); flex:1; display:flex; flex-direction:column; align-items:flex-start; gap:15px; }
+    .caption p { margin:0; color:var(--muted); font-size:14px; }
+    .caption button { margin-top:auto; }
+    .sequence { list-style:none; margin:0; padding:0; display:grid; gap:13px; }
+    .sequence li { display:flex; align-items:center; gap:12px; border:1px solid var(--line); border-radius:12px; padding:15px 14px; background:#fff; }
+    .sequence svg { width:23px; height:23px; color:var(--accent); flex-shrink:0; }
+    .sequence strong { display:block; font-size:14px; line-height:1.35; }
+    .sequence small { color:var(--muted); font-size:12px; }
+    .disclosure-stage { justify-content:flex-start; padding-top:34px; background:#fbfcfe; }
+    .summary { border:1px solid var(--line); border-radius:14px; background:#fff; padding:17px; }
+    .summary-title { font-size:17px; font-weight:650; letter-spacing:-.03em; margin:0 0 5px; }
+    .summary-copy { font-size:13px; color:var(--muted); margin:0 0 17px; }
+    #panel-toggle { width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:13px; padding:10px 12px; }
+    #panel-toggle svg { width:16px; height:16px; flex-shrink:0; }
+    #panel-toggle[aria-expanded="true"] svg { transform:rotate(180deg); }
+    .details { overflow:hidden; }
+    .details-inner { padding:16px 1px 2px; }
+    .details-inner p { font-size:13px; color:var(--muted); margin:0 0 13px; }
+    .details-inner button { font-size:12px; padding:8px 10px; }
+    .guidance { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px 28px; margin-top:28px; padding-top:23px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+    .guidance p { margin:0; }
+    .sr-only { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+    [hidden] { display:none !important; }
+    @media(max-width:1000px) { .intro { align-items:flex-start; flex-direction:column; gap:26px; } .controls { grid-template-columns:auto auto; align-items:center; column-gap:22px; } .motion-state { grid-column:1/-1; } .gallery { grid-template-columns:1fr; } article { display:grid; grid-template-columns:1fr 1fr; } .card-top { grid-column:1/-1; } .caption { border-top:0; border-left:1px solid var(--line); justify-content:center; } .caption button { margin-top:0; } .reveal-heading { font-size:42px; } }
+    @media(max-width:540px) { .shell { padding:24px 20px; } header { padding-bottom:20px; } .edition { font-size:12px; } .intro { padding:35px 0 27px; } .lead { font-size:16px; } .controls { grid-template-columns:1fr; gap:12px; } article { display:flex; } .caption { border-left:0; border-top:1px solid var(--line); } .stage { min-height:260px; } .reveal-heading { font-size:40px; } }
+    @media(prefers-reduced-motion:reduce) { button { transition:none; } }
+    html[data-reduced="true"] button { transition:none; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand"><svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M4 23V7h8v16M18 23V12h8v11" stroke="currentColor" stroke-width="2.5"/><path d="M12 7h14" stroke="#1659d4" stroke-width="2.5"/></svg>UI Art Director</div>
+      <span class="edition">Motion lab / 0.2</span>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div><h1 id="page-title">Small movements.<br>Clearer interfaces.</h1><p class="lead">Explore three ways to guide attention and make change easier to follow.</p></div>
+        <div class="controls">
+          <button type="button" class="primary" id="replay-all">Replay entrances</button>
+          <label class="preference"><input type="checkbox" id="reduce-motion">Reduce motion</label>
+          <span class="motion-state" id="motion-state" role="status">Motion is available</span>
+        </div>
+      </section>
+      <section class="gallery" aria-label="Interactive motion examples">
+        <article aria-labelledby="reveal-title">
+          <div class="card-top"><h2 id="reveal-title">Masked reveal</h2><span class="kind">Presentation</span></div>
+          <div class="stage reveal-stage"><p class="mini-label">A little space to begin.</p><h3 class="reveal-heading"><span class="mask"><span class="reveal-line">Make room </span></span><span class="mask"><span class="reveal-line">for the </span></span><span class="mask"><span class="reveal-line">moment.</span></span></h3></div>
+          <div class="caption"><p>A clipped entrance gives the heading a clear arrival. The final text keeps its full shape.</p><button type="button" id="replay-heading">Replay heading</button></div>
+        </article>
+        <article aria-labelledby="stagger-title">
+          <div class="card-top"><h2 id="stagger-title">Staggered entry</h2><span class="kind">Reading order</span></div>
+          <div class="stage"><ul class="sequence">
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="6" fill="#eaf0fc"/><path d="m7 12 3 3 7-7" stroke="currentColor" stroke-width="1.8"/></svg><div><strong>Structure</strong><small>Put the important things first.</small></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="6" fill="#eaf0fc"/><path d="m7 12 3 3 7-7" stroke="currentColor" stroke-width="1.8"/></svg><div><strong>Typography</strong><small>Give every word its role.</small></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="6" fill="#eaf0fc"/><path d="m7 12 3 3 7-7" stroke="currentColor" stroke-width="1.8"/></svg><div><strong>Interaction</strong><small>Make the next action clear.</small></div></li>
+          </ul></div>
+          <div class="caption"><p>A small offset connects the entries without turning a short list into a long wait.</p><button type="button" id="replay-list">Replay list</button></div>
+        </article>
+        <article aria-labelledby="panel-title">
+          <div class="card-top"><h2 id="panel-title">State transition</h2><span class="kind">Interaction</span></div>
+          <div class="stage disclosure-stage"><div class="summary"><p class="summary-title">A change that follows you.</p><p class="summary-copy">Open, close, or change your mind.</p><button type="button" id="panel-toggle" aria-expanded="false" aria-controls="details"><span id="toggle-label">Open details</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7"/></svg></button><div id="details" class="details" hidden inert><div class="details-inner"><p>The panel follows your latest action, even while it is still moving.</p><button type="button" id="close-details">Back to summary</button></div></div></div></div>
+          <div class="caption"><p>Try repeated clicks. The panel settles in the state you chose, and keyboard focus stays useful.</p><span class="motion-state">Use the control above to open and close.</span></div>
+        </article>
+      </section>
+      <div class="guidance"><p>Try reducing motion while an entrance is playing.</p><p>Original browser examples · MIT licence</p></div>
+      <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+      <noscript><p>Enable JavaScript to replay these examples. All example content is visible without an entrance animation.</p></noscript>
+    </main>
+  </div>
+  <script>
+    'use strict';
+    const systemPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const reduceControl = document.querySelector('#reduce-motion');
+    const active = new Map();
+    const panel = document.querySelector('#details');
+    const toggle = document.querySelector('#panel-toggle');
+    const announcement = document.querySelector('#announcement');
+    let reduced = false;
+    let expanded = false;
+    let panelVersion = 0;
+
+    function play(element, frames, options) {
+      active.get(element)?.cancel();
+      if (reduced || !element.animate) return null;
+      const animation = element.animate(frames, options);
+      active.set(element, animation);
+      animation.finished.catch(() => {}).finally(() => {
+        if (active.get(element) === animation) active.delete(element);
+      });
+      return animation;
+    }
+
+    function settlePanel() {
+      panel.hidden = !expanded;
+      panel.inert = !expanded;
+      panel.style.height = '';
+      panel.style.opacity = '';
+    }
+
+    function setExpanded(next) {
+      if (!next && panel.contains(document.activeElement)) toggle.focus();
+      const fromHeight = panel.hidden ? 0 : panel.getBoundingClientRect().height;
+      const fromOpacity = panel.hidden ? 0 : Number(getComputedStyle(panel).opacity);
+      const version = ++panelVersion;
+      active.get(panel)?.cancel();
+      expanded = next;
+      toggle.setAttribute('aria-expanded', String(next));
+      document.querySelector('#toggle-label').textContent = next ? 'Close details' : 'Open details';
+      panel.hidden = false;
+      panel.inert = !next;
+      panel.style.height = 'auto';
+      const toHeight = next ? panel.scrollHeight : 0;
+      panel.style.height = toHeight + 'px';
+      panel.style.opacity = next ? '1' : '0';
+      const animation = play(panel, [
+        { height: fromHeight + 'px', opacity: fromOpacity },
+        { height: toHeight + 'px', opacity: next ? 1 : 0 }
+      ], { duration: 220, easing: 'cubic-bezier(.2,.8,.2,1)' });
+      if (!animation) settlePanel();
+      else animation.finished.then(() => {
+        if (version === panelVersion) settlePanel();
+      }).catch(() => {});
+    }
+
+    function replayHeading() {
+      document.querySelectorAll('.reveal-line').forEach((line, index) => {
+        play(line, [{ transform: 'translateY(110%)' }, { transform: 'translateY(0)' }],
+          { duration: 420, delay: index * 55, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+      });
+    }
+
+    function replayList() {
+      document.querySelectorAll('.sequence li').forEach((item, index) => {
+        play(item, [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }],
+          { duration: 320, delay: index * 60, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' });
+      });
+    }
+
+    function updatePreference() {
+      reduced = systemPreference.matches || reduceControl.checked;
+      document.documentElement.dataset.reduced = String(reduced);
+      document.querySelector('#motion-state').textContent = systemPreference.matches
+        ? 'Reduced motion · system preference'
+        : reduced ? 'Reduced motion · steady states' : 'Motion on · ready to replay';
+      if (reduced) {
+        panelVersion++;
+        active.forEach(animation => animation.cancel());
+        active.clear();
+        settlePanel();
+      }
+    }
+
+    document.querySelector('#replay-heading').addEventListener('click', replayHeading);
+    document.querySelector('#replay-list').addEventListener('click', replayList);
+    document.querySelector('#replay-all').addEventListener('click', () => {
+      replayHeading();
+      replayList();
+      announcement.textContent = reduced ? 'Examples shown without movement.' : 'Entrance examples replayed.';
+    });
+    toggle.addEventListener('click', () => setExpanded(!expanded));
+    document.querySelector('#close-details').addEventListener('click', () => setExpanded(false));
+    reduceControl.addEventListener('change', updatePreference);
+    systemPreference.addEventListener('change', updatePreference);
+    window.addEventListener('resize', () => {
+      panelVersion++;
+      active.get(panel)?.cancel();
+      settlePanel();
+    });
+    updatePreference();
+  </script>
+</body>
+</html>

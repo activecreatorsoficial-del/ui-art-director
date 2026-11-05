@@ -10,4 +10,4 @@ Evaluate task completion, hierarchy, fit to brief, visual consistency, legibilit
 
 For broad changes, include a website, an application, a HUD, a narrow polish task, and an existing-brand task. Include negative routing cases to confirm the skill is not being used for unrelated work. The screenshot-only case checks honest handling of unavailable source and runtime.
 
-Results are not bundled yet. Contributions should label a run as incomplete when artifacts or observations are missing and must not include private project content without permission.
+Agent benchmark results are not bundled yet. The original [motion lab](../skills/ui-art-director/assets/motion-lab.html) is a small browser example, not the result of running all evaluation cases. For motion tasks, retain temporal evidence and exercise interruption, focus, resizing, and live reduced-motion changes. Contributions should label a run as incomplete when artifacts or observations are missing and must not include private project content without permission.

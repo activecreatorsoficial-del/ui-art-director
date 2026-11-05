@@ -1,6 +1,6 @@
 interface:
   display_name: "UI Art Director"
-  short_description: "Distinctive UI for websites, apps, and game HUDs"
-  default_prompt: "Use $ui-art-director to improve this interface with a coherent visual direction and verify the rendered result."
+  short_description: "Distinctive UI and motion for websites, apps, and HUDs"
+  default_prompt: "Use $ui-art-director to refine this interface and its motion, then verify its appearance and interactions."
 policy:
   allow_implicit_invocation: true

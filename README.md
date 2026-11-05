@@ -13,6 +13,8 @@ The goal is design judgement that fits the product: an expressive portfolio, an 
 - A concrete visual direction before a substantial redesign.
 - Composition and typography before decorative finishing.
 - Platform-specific considerations for websites, apps, and HUDs.
+- Reference analysis and dashboard-specific interaction guidance.
+- A motion-design workflow covering choreography, interruption, and reduced motion.
 - Review of the actual rendered result when tools permit it.
 - Refinement driven by observed defects, with a clear stopping point.
 - A process for improving the skill using feedback and comparable evaluations.
@@ -64,9 +66,15 @@ The workflow is **understand → direct → build → inspect → refine → ver
 
 See [continuous-improvement.md](skills/ui-art-director/references/continuous-improvement.md) and the [evaluation guide](evals/README.md).
 
+## Motion lab and tutorial references
+
+Download and open [motion-lab.html](skills/ui-art-director/assets/motion-lab.html) in a modern browser to explore three original examples: a masked heading, staggered entries, and an interruptible disclosure panel. The file is self-contained and uses no external library. Try repeated clicks and the reduced-motion setting. Its timings are illustrative design choices.
+
+Version 0.2 adds contextual reference analysis, dashboard patterns, and a motion-design module. [Source notes](skills/ui-art-director/references/tutorial-sources.md) identify the user-supplied tutorials, relevant timestamps, review method, and adaptations. The animation reference uses After Effects; the skill distinguishes presentation motion from interactive runtime behaviour.
+
 ## Validation and current status
 
-Version **0.1.0** is an initial release. Structural validation checks packaging, metadata, local documentation links, and evaluation-case integrity. It does **not** measure visual quality, prove model compliance, or establish tested support for every framework.
+Version **0.2.0** remains early-stage. Structural validation checks packaging, metadata, local documentation links, and evaluation-case integrity. It does **not** measure visual quality, prove model compliance, or establish tested support for every framework.
 
 Run the repository checks with Python 3.10 or newer:
 
@@ -78,7 +86,7 @@ python -m unittest discover -s tests
 
 Python and PyYAML are development dependencies for these checks. Using the skill itself requires neither. No network service, telemetry, account, additional skill, or paid design tool is bundled or required by the skill.
 
-The repository includes reproducible evaluation briefs. Real rendered before/after evaluations are still needed; no aesthetic benchmark results are claimed.
+The repository includes fourteen reusable evaluation briefs. The motion lab illustrates specific browser behaviour; its [check record](evals/motion-lab-checks.md) states the observed results and limits. It is not an agent benchmark. Real rendered before/after evaluations of agent outputs are still needed; no aesthetic benchmark results are claimed.
 
 ## Contribute
 

@@ -49,6 +49,41 @@
     "criteria": ["Observed visual issues are distinguished from assumptions.", "Recommendations identify locations and concrete changes.", "No claim of editing, runtime testing, or captured after-state is made."]
   },
   {
+    "id": "reference-transfer",
+    "activate": true,
+    "prompt": "Use these supplied hero references to improve this website. Explain the layout and grouping decisions you are transferring, retain our brand and original content, and inspect the mobile composition.",
+    "setup": "A runnable website, shareable reference images, brand constraints, realistic text, and agreed desktop and mobile sizes.",
+    "criteria": ["The reference is decomposed into observable relationships.", "Exact example pixel values and brand-specific styling are not imposed universally.", "Image focal points and text readability survive the narrower layout.", "The existing task flow remains intact."]
+  },
+  {
+    "id": "dashboard-feedback",
+    "activate": true,
+    "prompt": "Refine this dashboard's navigation, data grouping, and feedback. Preserve its existing filtering and optimistic update behaviour, including failure recovery. Make chart detail available to keyboard users as well as pointer users.",
+    "setup": "A working dashboard with collapsed navigation, chart interaction, a populated and filtered-empty table, and simulated success and failure responses.",
+    "criteria": ["Navigation and the current destination remain identifiable in collapsed mode.", "The main task determines content priority and density.", "Relevant chart details have equivalent supported input access.", "Failed optimistic updates recover without lost input or false success.", "Important errors are not communicated only by a transient toast."]
+  },
+  {
+    "id": "interruptible-ui-motion",
+    "activate": true,
+    "prompt": "Add restrained transitions to this panel and introductory list. The controls must remain responsive when I click repeatedly or reverse the panel before the animation finishes.",
+    "setup": "A runnable UI with a disclosure panel, keyboard controls, a list, and a way to record or observe the transition.",
+    "criteria": ["The motion has an identifiable trigger, purpose, and final state.", "The latest valid action wins during reversal.", "Cancelled callbacks do not hide a newly opened panel.", "Focus remains useful and collapsed content cannot receive focus.", "Temporal evidence is reported separately from static screenshots."]
+  },
+  {
+    "id": "live-reduced-motion",
+    "activate": true,
+    "prompt": "Create a restrained heading reveal and a short list entrance. Honour reduced motion, including if the preference changes while the animations are running. Keep the complete text accessible.",
+    "setup": "A browser or native preview supporting the relevant motion preference, keyboard access, long or accented text, and a capture or replay tool.",
+    "criteria": ["Reducing motion during playback leaves a readable settled state.", "Important controls do not wait for decorative motion.", "Text remains complete for assistive technology.", "Final glyphs and focus indicators are not clipped.", "Resizing does not strand content in an intermediate state."]
+  },
+  {
+    "id": "hud-motion-state",
+    "activate": true,
+    "prompt": "Improve health-change and cooldown feedback in this HUD. Show the real current value promptly, keep effects away from the reticle, and handle repeated updates and reduced motion.",
+    "setup": "A runnable engine preview, bright and dark gameplay, repeated health updates, active cooldowns, and supported accessibility settings.",
+    "criteria": ["Critical current values remain truthful during visual feedback.", "Repeated updates retarget the motion coherently.", "Effects preserve scene readability and the action area.", "The supported reduced-motion setting keeps the HUD functional.", "Performance is measured or explicitly left unverified."]
+  },
+  {
     "id": "backend-only",
     "activate": false,
     "prompt": "Optimise the database index used by the invoice API without changing any UI.",

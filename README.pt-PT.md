@@ -13,6 +13,8 @@ Um portefólio expressivo, uma ferramenta de trabalho com muitos dados e um HUD 
 - Direção visual concreta para trabalhos de maior dimensão.
 - Composição, hierarquia e tipografia antes dos pormenores decorativos.
 - Orientações específicas para sites, aplicações e HUDs.
+- Análise de referências e orientações específicas para dashboards.
+- Um módulo de animação com ritmo, sequências, interrupção e redução de movimento.
 - Inspeção da interface renderizada quando existem ferramentas para isso.
 - Correções baseadas em problemas observados e um ponto claro de conclusão.
 - Um processo para evoluir a skill através de feedback e avaliações comparáveis.
@@ -60,7 +62,7 @@ O processo é **compreender → definir → construir → inspecionar → refina
 
 ## Estado e validação
 
-A versão **0.1.0** é uma versão inicial. A validação verifica a estrutura, os metadados, as ligações locais e a integridade dos casos de avaliação. Não mede qualidade estética nem prova que um modelo segue sempre as instruções.
+A versão **0.2.0** ainda está numa fase inicial. A validação verifica a estrutura, os metadados, as ligações locais e a integridade dos casos de avaliação. Não mede qualidade estética nem prova que um modelo segue sempre as instruções.
 
 Para executar as verificações, usa Python 3.10 ou superior:
 
@@ -72,7 +74,13 @@ python -m unittest discover -s tests
 
 Estas dependências servem apenas para validar o repositório. A utilização da skill não exige Python, telemetria, serviços externos ou outras skills.
 
-Existem [casos de avaliação](evals/README.md) para orientar testes reais. Ainda são necessárias comparações visuais renderizadas; não são apresentados resultados de qualidade estética.
+Existem [casos de avaliação](evals/README.md) para orientar testes reais. Ainda são necessárias comparações visuais renderizadas dos resultados de agentes; não são apresentados resultados de qualidade estética.
+
+## Demonstração de animações
+
+Descarrega e abre [motion-lab.html](skills/ui-art-director/assets/motion-lab.html) num navegador moderno. Inclui três exemplos originais: revelação de um título com máscara, entradas em sequência e um painel que acompanha cliques repetidos durante a transição. Experimenta também a opção de reduzir movimento.
+
+O ficheiro funciona sozinho, sem bibliotecas externas. Os tempos são exemplos ajustáveis. O [registo de verificação](evals/motion-lab-checks.md) descreve os comportamentos observados e os limites dos testes. As [notas das fontes](skills/ui-art-director/references/tutorial-sources.md) identificam os tutoriais enviados pelo utilizador, as partes analisadas e as adaptações. A referência de animação usa After Effects; a skill adapta os princípios ao comportamento de interfaces interativas.
 
 ## Contribuir e licença
 
